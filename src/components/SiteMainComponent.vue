@@ -1,36 +1,43 @@
 <template>
-  <section>
-    <div class="container">
-      <div class="row row-cols-5">
-        <div class="col" v-for="(album, index) in albumsList" :key="index">
-          <div class="album-card">
-            <img :src="album.poster" alt="" class="img-fluid">
-            <div class="title text-white text-uppercase text-center">{{album.title}}</div>
-            <div class="author-info text-center">
-              <div>{{album.author}}</div>
-              <div>{{album.year}}</div>
+  <main>
+    <section v-if="!loading">
+      <div class="container">
+        <div class="row row-cols-5">
+          <div class="col" v-for="(album, index) in albumsList" :key="index">
+            <div class="album-card">
+              <img :src="album.poster" alt="" class="img-fluid" />
+              <div class="title text-white text-uppercase text-center">
+                {{ album.title }}
+              </div>
+              <div class="author-info text-center">
+                <div>{{ album.author }}</div>
+                <div>{{ album.year }}</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+    <div class="loader d-flex min-vh-100 align-items-center justify-content-center fs-4" v-else>
+      Loading...
     </div>
-  </section>
+  </main>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
-    name: 'SiteMain',
-    data() {
-      return {
-        link: 'https://flynn.boolean.careers/exercises/api/array/music',
-        albumsList: null,
-        loading: true
-      }
-    },
-    methods: {
-      callApi() {
-        axios
+  name: "SiteMain",
+  data() {
+    return {
+      link: "https://flynn.boolean.careers/exercises/api/array/music",
+      albumsList: null,
+      loading: true,
+    };
+  },
+  methods: {
+    callApi() {
+      axios
         .get(this.link)
         .then((response) => {
           //console.log(response);
@@ -39,17 +46,17 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-        })
-      }
+        });
     },
-    mounted() {
-      this.callApi()
-    }
-}
+  },
+  mounted() {
+    this.callApi();
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_variables.scss';
+@import "@/assets/scss/_variables.scss";
 section {
   padding: 2rem 0;
   .album-card {
@@ -63,7 +70,6 @@ section {
     }
     .author-info {
       color: $artistTextColor;
-      flex-grow: 1;
     }
   }
 }
