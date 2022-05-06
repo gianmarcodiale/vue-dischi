@@ -31,7 +31,7 @@
 
 <script>
 import axios from "axios";
-import state from '@/state'
+import state from "@/state";
 export default {
   name: "SiteMain",
   data() {
@@ -60,11 +60,13 @@ export default {
   },
   computed: {
     filterAlbums() {
-       return this.albumsList.filter(album => {
-         return album.genre.toLowerCase().includes(state.selectGenre.toLowerCase());
-       });
-    }
-  }
+      return this.albumsList.filter((album) => {
+        return album.genre
+          .toLowerCase()
+          .includes(state.selectGenre.toLowerCase());
+      });
+    },
+  },
 };
 </script>
 

@@ -4,10 +4,10 @@
     id="selectGenre"
     @submit.prevent="$emit(select)"
     @input="$emit('input', $event.target.value)"
-    @click="$emit('select')"
+    @change="$emit('select')"
     :value="selectGenre"
   >
-    <option selected>Select genre</option>
+    <option selected value="all">Select genre</option>
     <option value="rock">Rock</option>
     <option value="jazz">Jazz</option>
     <option value="metal">Metal</option>
