@@ -21,7 +21,7 @@
       </div>
     </section>
     <div
-      class="loader d-flex min-vh-100 align-items-center justify-content-center fs-4"
+      class="loader d-flex min-vh-100 align-items-center justify-content-center fs-4 text-white"
       v-else
     >
       Loading...
