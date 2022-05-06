@@ -4,12 +4,12 @@
       <div class="container">
         <div class="row row-cols-5">
           <div class="col" v-for="(album, index) in albumsList" :key="index">
-            <div class="album-card">
+            <div class="album-card d-flex flex-column text-center align-items-center">
               <img :src="album.poster" alt="" class="img-fluid" />
-              <div class="title text-white text-uppercase text-center">
+              <div class="title text-white text-uppercase">
                 {{ album.title }}
               </div>
-              <div class="author-info text-center">
+              <div class="author-info">
                 <div>{{ album.author }}</div>
                 <div>{{ album.year }}</div>
               </div>
@@ -62,7 +62,6 @@ section {
   .album-card {
     padding: 1rem;
     background-color: $footerCardsColor;
-    height: calc(100vh / 1.2);
     margin: 0.5rem;
     .title {
       font-size: 0.9rem;
