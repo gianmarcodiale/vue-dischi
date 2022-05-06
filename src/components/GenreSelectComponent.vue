@@ -19,7 +19,7 @@
 export default {
   name: "GenreSelect",
   props: {
-    selectGenre: String,
+    selectGenre: String
   },
 };
 </script>

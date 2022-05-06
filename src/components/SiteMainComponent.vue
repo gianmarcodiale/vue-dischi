@@ -3,7 +3,7 @@
     <section v-if="!loading">
       <div class="container">
         <div class="row row-cols-5">
-          <div class="col" v-for="(album, index) in albumsList" :key="index">
+          <div class="col" v-for="(album, index) in filterAlbums" :key="index">
             <div
               class="album-card d-flex flex-column text-center align-items-center"
             >
@@ -31,6 +31,7 @@
 
 <script>
 import axios from "axios";
+import state from '@/state'
 export default {
   name: "SiteMain",
   data() {
@@ -57,6 +58,13 @@ export default {
   mounted() {
     this.callApi();
   },
+  computed: {
+    filterAlbums() {
+       return this.albumsList.filter(album => {
+         return album.genre.toLowerCase().includes(state.selectGenre.toLowerCase());
+       });
+    }
+  }
 };
 </script>
 
