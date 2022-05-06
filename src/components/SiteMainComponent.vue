@@ -4,7 +4,9 @@
       <div class="container">
         <div class="row row-cols-5">
           <div class="col" v-for="(album, index) in albumsList" :key="index">
-            <div class="album-card d-flex flex-column text-center align-items-center">
+            <div
+              class="album-card d-flex flex-column text-center align-items-center"
+            >
               <img :src="album.poster" alt="" class="img-fluid" />
               <div class="title text-white text-uppercase">
                 {{ album.title }}
@@ -18,7 +20,10 @@
         </div>
       </div>
     </section>
-    <div class="loader d-flex min-vh-100 align-items-center justify-content-center fs-4" v-else>
+    <div
+      class="loader d-flex min-vh-100 align-items-center justify-content-center fs-4"
+      v-else
+    >
       Loading...
     </div>
   </main>
@@ -63,6 +68,7 @@ section {
     padding: 1rem;
     background-color: $footerCardsColor;
     margin: 0.5rem;
+    min-height: 350px;
     .title {
       font-size: 0.9rem;
       padding: 1rem 0;
