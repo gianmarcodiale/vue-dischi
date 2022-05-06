@@ -1,19 +1,29 @@
 <template>
   <header class="d-flex justify-content-between">
     <img src="@/assets/img/Spotify_logo.png" alt="" class="img-fluid" />
-    <select name="selectGenre" id="selectGenre">
-      <option selected>Select genre</option>
-      <option value="rock">Rock</option>
-      <option value="jazz">Jazz</option>
-      <option value="metal">Metal</option>
-      <option value="pop">Pop</option>
-    </select>
+    <GenreSelect @select="search" v-model="selectGenre"/>
   </header>
 </template>
 
 <script>
+import GenreSelect from '@/components/GenreSelectComponent.vue'
+import state from '@/state.js'
 export default {
   name: "SiteHeader",
+  components: {
+    GenreSelect
+  },
+  data() {
+    return {
+      selectGenre: ''
+    }
+  },
+  methods: {
+    search() {
+      state.selectGenre = this.selectGenre
+      //console.log(state.selectGenre);
+    }
+  }
 };
 </script>
 
