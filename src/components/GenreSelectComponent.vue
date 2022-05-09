@@ -7,7 +7,7 @@
     @change="$emit('select')"
     :value="selectGenre"
   >
-    <option selected value="all">Select genre</option>
+    <option selected value="">Select genre</option>
     <option value="rock">Rock</option>
     <option value="jazz">Jazz</option>
     <option value="metal">Metal</option>
